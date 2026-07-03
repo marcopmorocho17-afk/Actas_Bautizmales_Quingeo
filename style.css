@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+
+    background-image: url("WhatsApp Image 2026-07-02 at 1.42.33 PM.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;      /* Hace que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Opcional: mantiene el fondo fijo al hacer scroll */
+}
+section{
+    display: flex;
+    justify-content: center;
+    margin: 250px;
+    border: solid black;
+}
+
+section{
+    width: 350px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+}
+
+/* Formulario */
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título (si agregas uno) */
+h2{
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label{
+    color: white;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Cajas de texto */
+input{
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente (opcional) */
+    width: 100%;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    text-align: center;
+}

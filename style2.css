@@ -1,0 +1,96 @@
+body{
+    background-image: url(descarga.jpg);
+        background-repeat: no-repeat;
+    background-size: cover;      /* Hace que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed;
+        margin: 0;
+    min-height: 100vh;
+}
+header{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+section label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#Buscador {
+    width: 350px;
+    max-width: 90%;
+    padding: 12px 15px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#Buscador:focus {
+    border-color: #2E7D32;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #388E3C;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#resultados{
+    width:90%;
+    margin:30px auto;
+}
+
+.acta{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    border-left:8px solid #2e8b57;
+}
+
+.acta h2{
+    color:#2e8b57;
+    margin-bottom:15px;
+}
+
+.acta p{
+    margin:8px 0;
+    font-size:16px;
+}
+
+.acta strong{
+    color:#444;
+}

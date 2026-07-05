@@ -6,282 +6,52 @@ body {
     background: linear-gradient(180deg, #e7edf6 0%, #f8fafc 100%);
     color: #0f172a;
 }
+@media print {
+    @page { size: auto; margin: 14mm 12mm; }
 
-* {
-    box-sizing: border-box;
-}
+    html, body { margin: 0; padding: 0; width: 100%; min-height: 100vh; background: white; }
+    body { display: flex; align-items: center; justify-content: center; }
+    .botones-impresion { display: none; }
 
-form.formulario {
-    width: min(900px, 100%);
-    max-width: 96%;
-    margin: 36px auto;
-    padding: 34px;
-    background: #ffffff;
-    border-radius: 26px;
-    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.08);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.formulario label {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #1e293b;
-}
-
-.formulario input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #cfd8e3;
-    border-radius: 14px;
-    background: #f8fafc;
-    font-size: 1rem;
-    color: #0f172a;
-    outline: none;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.formulario input:focus {
-    border-color: #38a169;
-    box-shadow: 0 0 0 5px rgba(56, 161, 105, 0.12);
-}
-
-.formulario button {
-    grid-column: 1 / -1;
-    padding: 16px 0;
-    font-size: 1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 16px 30px rgba(15, 64, 48, 0.18);
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.formulario button:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.05);
-}
-
-.formulario button:active {
-    transform: translateY(0);
-}
-
-@media (max-width: 780px) {
-    form.formulario {
-        grid-template-columns: 1fr;
-        padding: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 20px 12px;
+    .impresion-contenedor {
+        box-shadow: none; margin: 0; padding: 0; border: none; width: 100%; max-width: 720px; position: relative;
     }
 
-    .formulario {
-        padding: 24px;
-        gap: 16px;
+    @media print {
+        @page { size: auto; margin: 14mm 12mm; }
+
+        html, body { margin: 0; padding: 0; width: 100%; min-height: 100vh; background: white; }
+        body { display: flex; align-items: center; justify-content: center; }
+
+        .botones-impresion { display: none; }
+
+        .impresion-contenedor { box-shadow: none; margin: 0; padding: 0; border: none; width: 100%; max-width: 720px; position: relative; }
+        .impresion-contenedor::before, .impresion-contenedor::after { content: ""; position: fixed; left: 0; width: 100%; height: 1px; background: #334155; }
+        .impresion-contenedor::before { top: 12mm; }
+        .impresion-contenedor::after { bottom: 12mm; }
+
+        .documento { border: none; background: transparent; padding: 0; margin-top: -10px; }
+
+        .documento-header { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 24px; }
+        .documento-header .logo-placeholder { width: 70px; height: 70px; overflow: hidden; }
+        .documento-header .logo-placeholder img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+        .header-main-title { margin: 36px 0 0; text-align: center; font-size: 2rem; }
+
+        .documento-content { display: grid; gap: 80px; }
+        .documento-content p { margin: 0 0 20px; color: #0f172a; font-size: 1rem; line-height: 1.9; text-align: left; }
+
+        .documento-doc { margin-bottom: 24px; padding: 20px 22px; border: 1px solid #cbd5e1; border-radius: 16px; background: #f8fafc; font-weight: 700; }
+        .documento-doc--line { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: flex-start; margin: 0; padding: 0; border: none; background: transparent; }
+
+        .fecha-quingeo { margin: 24px 0 0; font-size: 1rem; font-weight: 700; text-align: right; color: #0f172a; }
+        .telefono { margin: 120px 0 0; font-size: 1rem; font-weight: 700; text-align: center; color: #0f172a; }
+
+        .nota-marginal-line { margin: 12px 0; width: 100%; min-height: 48px; border-bottom: 2px solid #cbd5e1; color: transparent; }
+
+        .documento-footer { margin-top: 120px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: flex-start; align-items: center; }
+        .firma-placeholder { width: min(420px,100%); display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:24px; }
     }
-}
-
-.form-actions {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 14px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.form-actions button {
-    width: auto;
-    padding: 14px 22px;
-}
-
-.form-actions .btn-regresar {
-    background: #334155;
-    color: #ffffff;
-}
-
-.impresion-contenedor {
-    width: min(900px, 100%);
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 24px;
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-}
-
-.documento {
-    padding: 28px 32px;
-    border-radius: 22px;
-    border: 1px solid #dbe4ee;
-    background: #ffffff;
-}
-
-.documento-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 22px;
-    margin-bottom: 24px;
-}
-
-.documento-header .logo-placeholder {
-    width: 140px;
-    height: 140px;
-    border: none;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #f8fafc;
-}
-
-.documento-header .logo-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-    .documento-titulo .header-line {
-        margin: 0;
-        color: #1f2937;
-        font-size: 0.95rem;
-        letter-spacing: 0.18em;
-    }
-
-    .documento-titulo .header-line.uppercase {
-        text-transform: uppercase;
-        color: #1f2937;
-        font-weight: 700;
-        letter-spacing: 0.24em;
-    }
-
-    .documento-titulo .header-title {
-        margin: 0;
-        font-size: 1.8rem;
-        color: #0f172a;
-        font-weight: 800;
-        letter-spacing: 0.02em;
-    }
-
-.header-main-title {
-    margin: 42px 0 32px;
-    text-align: center;
-    font-size: 2rem;
-    letter-spacing: 0.2em;
-    font-weight: 800;
-    color: #0f172a;
-}
-
-    .documento-titulo .header-line.secondary {
-        margin: 0;
-        color: #475569;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-    }
-
-.documento-content {
-    display: grid;
-    gap: 54px;
-}
-
-.documento-content p {
-    margin: 0 0 28px;
-    color: #0f172a;
-    font-size: 0.98rem;
-    line-height: 2.2;
-}
-
-.documento-doc {
-    margin-bottom: 58px;
-    padding: 16px 20px;
-    border: 1px solid #cbd5e1;
-    border-radius: 16px;
-    background: #f8fafc;
-    font-weight: 700;
-}
-
-.documento-doc--line {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 18px 3rem;
-    align-items: start;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-}
-
-.documento-doc-item {
-    min-width: 170px;
-}
-
-.documento-content p strong {
-    font-weight: 700;
-}
-
-.linea-quingeo {
-    margin-top: 18px;
-    color: #334155;
-    font-size: 0.98rem;
-    line-height: 1.7;
-}
-
-.documento-footer {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.firma-placeholder {
-    width: min(420px, 100%);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.firma-placeholder span {
-    display: block;
-    font-weight: 700;
-    color: #0f172a;
-}
-
-.nota-firma {
-    display: none;
-}
-
-.firma-line {
-    width: 100%;
-    min-height: 1px;
-    border-bottom: 2px solid #334155;
-    margin: 0;
-}
-
-.nota-firma {
-    color: #64748b;
-    font-size: 0.95rem;
-}
-
-.nota-marginal {
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
 }
 
 .nota-marginal-title {
@@ -365,6 +135,8 @@ form.formulario {
         border: none;
         width: 100%;
         max-width: 660px;
+        padding-left: 0;
+        padding-right: 0;
         position: relative;
     }
 
@@ -389,18 +161,22 @@ form.formulario {
     .documento {
         border: none;
         background: transparent;
-        padding: 2px 4px;
-        margin-top: -2px;
+        padding: 2px 8px;
+        margin-top: 12mm;
     }
 
     .telefono {
-        margin: 8px 0 0;
-        font-size: 0.84rem;
+        margin: 48px 0 0;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
     }
 
     .fecha-quingeo {
-        margin: 2px 0 0;
-        font-size: 0.82rem;
+        margin: 8px 0 0;
+        font-size: 0.95rem;
+        text-align: right;
+        width: 100%;
     }
 
     .documento-header {
@@ -417,47 +193,44 @@ form.formulario {
 
     .documento-content {
         display: grid;
-        gap: 2px;
+        gap: 36px;
     }
 
     .documento-content p {
-        margin: 0 0 0px;
-        font-size: 0.82rem;
-        line-height: 1.0;
+        margin: 0 0 10px;
+        font-size: 0.98rem;
+        line-height: 1.4;
         text-align: left;
     }
 
     .documento-doc {
-        margin-bottom: 0px;
-        padding: 2px 0 2px 0;
+        margin-bottom: 12px;
+        padding: 10px 12px;
         width: 100%;
     }
 
     .nota-marginal-line {
-        margin: 2px 0;
+        margin: 8px 0;
         width: 100%;
-        min-height: 6px;
-        border-bottom: 1px solid #cbd5e1;
+        min-height: 24px;
+        border-bottom: 2px solid #cbd5e1;
     }
 
     .documento-footer {
-        margin-top: 4px;
-        gap: 6px;
+        margin-top: 40px;
+        gap: 20px;
     }
 
     .firma-placeholder {
-        margin-bottom: 2px;
+        margin-bottom: 16px;
     }
 
     .documento-header .logo-placeholder {
         width: 70px;
         height: 70px;
+        overflow: hidden;
     }
-
-    .documento-header .logo-placeholder {
-        width: 88px;
-        height: 88px;
-    }
+    .documento-header .logo-placeholder img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     .documento-titulo .header-title {
         font-size: 1.1rem;
@@ -495,4 +268,20 @@ form.formulario {
 .botones-impresion button:hover {
     transform: translateY(-1px);
     filter: brightness(1.05);
+}
+
+/* Global logo constraints to prevent oversized images (screen + print captures) */
+.logo-placeholder {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    flex: 0 0 70px;
+}
+.logo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }

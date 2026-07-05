@@ -38,8 +38,8 @@ body {
 
         .header-main-title { margin: 36px 0 0; text-align: center; font-size: 2rem; }
 
-        .documento-content { display: grid; gap: 80px; }
-        .documento-content p { margin: 0 0 20px; color: #0f172a; font-size: 1rem; line-height: 1.9; text-align: left; }
+        .documento-content { display: grid; gap: 60px; }
+        .documento-content p { margin: 0 0 16px; color: #0f172a; font-size: 1rem; line-height: 1.7; text-align: left; }
 
         .documento-doc { margin-bottom: 24px; padding: 20px 22px; border: 1px solid #cbd5e1; border-radius: 16px; background: #f8fafc; font-weight: 700; }
         .documento-doc--line { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: flex-start; margin: 0; padding: 0; border: none; background: transparent; }
@@ -193,13 +193,13 @@ body {
 
     .documento-content {
         display: grid;
-        gap: 36px;
+        gap: 30px;
     }
 
     .documento-content p {
-        margin: 0 0 10px;
+        margin: 0 0 8px;
         font-size: 0.98rem;
-        line-height: 1.4;
+        line-height: 1.35;
         text-align: left;
     }
 

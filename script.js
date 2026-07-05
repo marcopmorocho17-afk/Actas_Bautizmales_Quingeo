@@ -120,7 +120,7 @@ async function buscarActas() {
             <p><strong>Padrino:</strong> ${acta.padrino || 'No registrado'}</p>
             <p><strong>Madrina:</strong> ${acta.madrina || 'No registrada'}</p>
 
-            <p><strong>Sacerdote:</strong> ${acta.sacerdote}</p>
+            <p><strong>Presbitero:</strong> ${acta.sacerdote}</p>
 
             <p><strong>Ubicación del Documento:</strong> Libro ${acta.libro_acta}, Página ${acta.pagina_acta}, Acta Nº ${acta.numero_acta}</p>
             <button type="button" class="descargar-btn" onclick="descargarActa(${index})">Descargar</button>

@@ -38,7 +38,7 @@ async function buscarActas() {
             <p><strong>Padrino:</strong> ${acta.padrino}</p>
             <p><strong>Madrina:</strong> ${acta.madrina}</p>
 
-            <p><strong>Sacerdote:</strong> ${acta.sacerdote}</p>
+            <p><strong>Presbitero:</strong> ${acta.sacerdote}</p>
 
             <p><strong>Tomo:</strong> ${acta.tomo}</p>
             <p><strong>Página:</strong> ${acta.pagina}</p>

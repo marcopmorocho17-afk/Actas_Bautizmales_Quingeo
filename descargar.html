@@ -33,6 +33,14 @@
             const fechaNacimiento = acta.fecha_nacimiento || acta.ano_nacimiento || "No disponible";
             const fechaBautismo = acta.fecha_bautismo || acta.ano_bautismo || "No disponible";
 
+            const fechaHoy = new Date();
+            const dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+            const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+            const dia = fechaHoy.getDate();
+            const mes = meses[fechaHoy.getMonth()];
+            const ano = fechaHoy.getFullYear();
+            const fechaQuingeo = `Quingeo ${dia} de ${mes} del ${ano}`;
+
             contenedor.innerHTML = `
                 <div class="documento-header">
                     <div class="logo-placeholder">
@@ -46,6 +54,9 @@
                     </div>
                 </div>
                 <p class="header-main-title">CERTIFICADO DE BAUTISMO</p>
+                <div class="linea-quingeo">
+                    <span>${fechaQuingeo}</span>
+                </div>
                 <div class="documento-content documento-content--wide">
                     <p class="documento-doc documento-doc--line">
                         <span class="documento-doc-item"><strong>Tomo:</strong> ${acta.libro_acta || 'No disponible'}</span>
@@ -62,9 +73,6 @@
                         <p class="nota-marginal-title"><strong>Nota marginal</strong></p>
                         <p class="nota-marginal-line"></p>
                         <p class="nota-marginal-line"></p>
-                    </div>
-                    <div class="linea-quingeo">
-                        <span>Quingeo __________________ de ____________________ 20__</span>
                     </div>
                 </div>
                 <div class="documento-footer">

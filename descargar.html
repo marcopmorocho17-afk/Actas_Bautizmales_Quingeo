@@ -31,6 +31,7 @@
 
             const nombreCompleto = `${acta.primer_nombre} ${acta.segundo_nombre || ''} ${acta.primer_apellido} ${acta.segundo_apellido || ''}`.replace(/\s+/g, ' ').trim();
             const fechaNacimiento = acta.fecha_nacimiento || acta.ano_nacimiento || "No disponible";
+            const fechaBautismo = acta.fecha_bautismo || acta.ano_bautismo || "No disponible";
 
             contenedor.innerHTML = `
                 <div class="documento-header">
@@ -53,7 +54,7 @@
                     </p>
                     <p><strong>Nombre:</strong> ${nombreCompleto}</p>
                     <p><strong>Fecha de nacimiento:</strong> ${fechaNacimiento} <strong>Lugar de nacimiento:</strong> ${acta.lugar_nacimiento || 'No disponible'}</p>
-                    <p><strong>Año de bautismo:</strong> ${acta.ano_bautismo || 'No disponible'} <strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo || 'No disponible'}</p>
+                    <p><strong>Fecha de bautismo:</strong> ${fechaBautismo} <strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo || 'No disponible'}</p>
                     <p><strong>Padre:</strong> ${acta.padre || 'No disponible'}<br><strong>Madre:</strong> ${acta.madre || 'No disponible'}</p>
                     <p><strong>Padrino:</strong> ${acta.padrino || 'No disponible'}<br><strong>Madrina:</strong> ${acta.madrina || 'No disponible'}</p>
                     <p><strong>Presbitero:</strong> ${acta.sacerdote || 'No disponible'}</p>

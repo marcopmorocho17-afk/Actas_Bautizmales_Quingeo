@@ -135,11 +135,18 @@ button:active {
     color: #102a43;
 }
 
-.descargar-btn {
+.acta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.descargar-btn,
+.eliminar-btn {
     width: min(160px, 100%);
     padding: 14px 18px;
     border-radius: 18px;
-    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
     color: #ffffff;
     border: none;
     outline: none;
@@ -148,7 +155,16 @@ button:active {
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.descargar-btn:hover {
+.descargar-btn {
+    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+}
+
+.eliminar-btn {
+    background: linear-gradient(135deg, #c53030 0%, #9b2c2c 100%);
+}
+
+.descargar-btn:hover,
+.eliminar-btn:hover {
     transform: translateY(-1px);
     filter: brightness(1.08);
 }

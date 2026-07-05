@@ -99,11 +99,14 @@ async function buscarActas() {
     }
 
     currentActas = data;
+    renderActas();
+}
+
+function renderActas() {
     const resultados = document.getElementById("resultados");
     resultados.innerHTML = "";
 
-    data.forEach((acta, index) => {
-        // Combinamos nombres y apellidos dinámicamente para mostrarlos de forma limpia
+    currentActas.forEach((acta, index) => {
         const nombreCompleto = `${acta.primer_nombre} ${acta.segundo_nombre || ''} ${acta.primer_apellido} ${acta.segundo_apellido || ''}`.trim();
 
         resultados.innerHTML += `
@@ -111,7 +114,7 @@ async function buscarActas() {
             <h2>${nombreCompleto}</h2>
 
             <p><strong>Fecha de nacimiento:</strong> ${acta.fecha_nacimiento || acta.ano_nacimiento}</p>
-            <p><strong>Año de bautismo:</strong> ${acta.ano_bautismo}</p>
+            <p><strong>Fecha de bautismo:</strong> ${acta.fecha_bautismo || acta.ano_bautismo}</p>
             <p><strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo}</p>
 
             <p><strong>Padre:</strong> ${acta.padre}</p>
@@ -123,10 +126,18 @@ async function buscarActas() {
             <p><strong>Presbitero:</strong> ${acta.sacerdote}</p>
 
             <p><strong>Ubicación del Documento:</strong> Libro ${acta.libro_acta}, Página ${acta.pagina_acta}, Acta Nº ${acta.numero_acta}</p>
-            <button type="button" class="descargar-btn" onclick="descargarActa(${index})">Descargar</button>
+            <div class="acta-buttons">
+                <button type="button" class="descargar-btn" onclick="descargarActa(${index})">Descargar</button>
+                <button type="button" class="eliminar-btn" onclick="eliminarActa(${index})">Eliminar</button>
+            </div>
         </div>
         `;
     });
+}
+
+function eliminarActa(index) {
+    currentActas.splice(index, 1);
+    renderActas();
 }
 
 function Mostrar() {
@@ -153,7 +164,7 @@ async function guardarActa() {
 
     const camposRequeridos = [
         "primer_nombre", "segundo_nombre", "primer_apellido", "segundo_apellido",
-        "fecha_nacimiento", "lugar_nacimiento", "lugar_bautismo", "fecha_bautismo",
+        "fecha_nacimiento", "lugar_nacimiento", "fecha_bautismo", "lugar_bautismo", "iglesia",
         "sacerdote", "padre", "madre", "padrino", "madrina",
         "libro_acta", "pagina_acta", "numero_acta"
     ];
@@ -178,10 +189,11 @@ async function guardarActa() {
         segundo_nombre: getFieldValue("segundo_nombre"),
         primer_apellido: getFieldValue("primer_apellido"),
         segundo_apellido: getFieldValue("segundo_apellido"),
-        ano_nacimiento: getYearFromDateField("fecha_nacimiento"),
+        fecha_nacimiento: getFieldValue("fecha_nacimiento"),
         lugar_nacimiento: getFieldValue("lugar_nacimiento"),
-        ano_bautismo: getYearFromDateField("fecha_bautismo"),
+        fecha_bautismo: getFieldValue("fecha_bautismo"),
         lugar_bautismo: getFieldValue("lugar_bautismo"),
+        iglesia: getFieldValue("iglesia"),
         sacerdote: getFieldValue("sacerdote"),
         padre: getFieldValue("padre"),
         madre: getFieldValue("madre"),

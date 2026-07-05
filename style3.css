@@ -364,7 +364,7 @@ form.formulario {
         padding: 0;
         border: none;
         width: 100%;
-        max-width: 680px;
+        max-width: 660px;
         position: relative;
     }
 
@@ -389,64 +389,69 @@ form.formulario {
     .documento {
         border: none;
         background: transparent;
-        padding: 4px 6px;
-        margin-top: -4px;
+        padding: 2px 4px;
+        margin-top: -2px;
     }
 
     .telefono {
-        margin: 12px 0 0;
-        font-size: 0.9rem;
+        margin: 8px 0 0;
+        font-size: 0.84rem;
     }
 
     .fecha-quingeo {
-        margin: 4px 0 0;
-        font-size: 0.86rem;
+        margin: 2px 0 0;
+        font-size: 0.82rem;
     }
 
     .documento-header {
-        gap: 6px;
-        margin-bottom: 8px;
+        gap: 4px;
+        margin-bottom: 6px;
         flex-direction: row;
         align-items: flex-start;
     }
 
     .header-main-title {
-        margin: 12px 0 6px;
-        font-size: 1.4rem;
+        margin: 8px 0 4px;
+        font-size: 1.2rem;
     }
 
     .documento-content {
         display: grid;
-        gap: 4px;
+        gap: 2px;
     }
 
     .documento-content p {
-        margin: 0 0 2px;
-        font-size: 0.86rem;
-        line-height: 1.05;
+        margin: 0 0 0px;
+        font-size: 0.82rem;
+        line-height: 1.0;
         text-align: left;
     }
 
     .documento-doc {
-        margin-bottom: 2px;
-        padding: 4px 0 4px 0;
+        margin-bottom: 0px;
+        padding: 2px 0 2px 0;
         width: 100%;
     }
 
     .nota-marginal-line {
-        margin: 4px 0;
+        margin: 2px 0;
         width: 100%;
-        min-height: 10px;
+        min-height: 6px;
         border-bottom: 1px solid #cbd5e1;
     }
 
     .documento-footer {
-        margin-top: 8px;
-        gap: 8px;
+        margin-top: 4px;
+        gap: 6px;
     }
 
     .firma-placeholder {
-        margin-bottom: 4px;
+        margin-bottom: 2px;
+    }
+
+    .documento-header .logo-placeholder {
+        width: 70px;
+        height: 70px;
     }
 
     .documento-header .logo-placeholder {

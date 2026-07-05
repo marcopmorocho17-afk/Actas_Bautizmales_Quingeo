@@ -174,7 +174,7 @@ form.formulario {
     }
 
 .header-main-title {
-    margin: 24px 0 0;
+    margin: 42px 0 32px;
     text-align: center;
     font-size: 2rem;
     letter-spacing: 0.2em;
@@ -190,20 +190,20 @@ form.formulario {
         letter-spacing: 0.08em;
     }
 
-.documento-content {
+..documento-content {
     display: grid;
-    gap: 18px;
+    gap: 54px;
 }
 
-..documento-content p {
-    margin: 0;
+.documento-content p {
+    margin: 0 0 28px;
     color: #0f172a;
     font-size: 0.98rem;
-    line-height: 1.75;
+    line-height: 2.2;
 }
 
 .documento-doc {
-    margin-bottom: 12px;
+    margin-bottom: 58px;
     padding: 16px 20px;
     border: 1px solid #cbd5e1;
     border-radius: 16px;
@@ -212,11 +212,10 @@ form.formulario {
 }
 
 .documento-doc--line {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px 3rem;
+    align-items: start;
     margin: 0;
     padding: 0;
     border: none;
@@ -224,7 +223,7 @@ form.formulario {
 }
 
 .documento-doc-item {
-    min-width: 130px;
+    min-width: 170px;
 }
 
 .documento-content p strong {
@@ -299,6 +298,14 @@ form.formulario {
     min-height: 36px;
     border-bottom: 2px solid #cbd5e1;
     color: transparent;
+}
+
+.fecha-quingeo {
+    margin: 20px 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #0f172a;
 }
 
 .telefono {

@@ -54,9 +54,6 @@
                     </div>
                 </div>
                 <p class="header-main-title">CERTIFICADO DE BAUTISMO</p>
-                <div class="linea-quingeo">
-                    <span>${fechaQuingeo}</span>
-                </div>
                 <div class="documento-content documento-content--wide">
                     <p class="documento-doc documento-doc--line">
                         <span class="documento-doc-item"><strong>Tomo:</strong> ${acta.libro_acta || 'No disponible'}</span>
@@ -66,8 +63,10 @@
                     <p><strong>Nombre:</strong> ${nombreCompleto}</p>
                     <p><strong>Fecha de nacimiento:</strong> ${fechaNacimiento} <strong>Lugar de nacimiento:</strong> ${acta.lugar_nacimiento || 'No disponible'}</p>
                     <p><strong>Fecha de bautismo:</strong> ${fechaBautismo} <strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo || 'No disponible'}</p>
-                    <p><strong>Padre:</strong> ${acta.padre || 'No disponible'}<br><strong>Madre:</strong> ${acta.madre || 'No disponible'}</p>
-                    <p><strong>Padrino:</strong> ${acta.padrino || 'No disponible'}<br><strong>Madrina:</strong> ${acta.madrina || 'No disponible'}</p>
+                    <p><strong>Padre:</strong> ${acta.padre || 'No disponible'}</p>
+                    <p><strong>Madre:</strong> ${acta.madre || 'No disponible'}</p>
+                    <p><strong>Padrino:</strong> ${acta.padrino || 'No disponible'}</p>
+                    <p><strong>Madrina:</strong> ${acta.madrina || 'No disponible'}</p>
                     <p><strong>Presbitero:</strong> ${acta.sacerdote || 'No disponible'}</p>
                     <div class="nota-marginal">
                         <p class="nota-marginal-title"><strong>Nota marginal</strong></p>
@@ -81,6 +80,7 @@
                         <div class="firma-line"></div>
                     </div>
                 </div>
+                <p class="fecha-quingeo">${fechaQuingeo}</p>
                 <p class="telefono">Telf: (07) 4149337</p>
             `;
         }

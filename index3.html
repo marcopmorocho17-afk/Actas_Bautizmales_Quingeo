@@ -18,56 +18,56 @@
     <form class="formulario" onsubmit="return false;">
 
         <label for="primer_nombre">Primer nombre</label>
-        <input type="text" id="primer_nombre" placeholder="Primer nombre" required>
+        <input type="text" id="primer_nombre" placeholder="Primer nombre" list="historial_primer_nombre" required>
 
         <label for="segundo_nombre">Segundo nombre</label>
-        <input type="text" id="segundo_nombre" placeholder="Segundo nombre" required>
+        <input type="text" id="segundo_nombre" placeholder="Segundo nombre" list="historial_segundo_nombre" required>
 
         <label for="primer_apellido">Primer apellido</label>
-        <input type="text" id="primer_apellido" placeholder="Primer apellido" required>
+        <input type="text" id="primer_apellido" placeholder="Primer apellido" list="historial_primer_apellido" required>
 
         <label for="segundo_apellido">Segundo apellido</label>
-        <input type="text" id="segundo_apellido" placeholder="Segundo apellido" required>
+        <input type="text" id="segundo_apellido" placeholder="Segundo apellido" list="historial_segundo_apellido" required>
 
         <label for="fecha_nacimiento">Fecha de nacimiento</label>
         <input type="date" id="fecha_nacimiento" required>
 
         <label for="lugar_nacimiento">Lugar de nacimiento</label>
-        <input type="text" id="lugar_nacimiento" placeholder="Lugar de nacimiento" required>
+        <input type="text" id="lugar_nacimiento" placeholder="Lugar de nacimiento" list="historial_lugar_nacimiento" required>
 
         <label for="lugar_bautismo">Lugar de bautismo</label>
-        <input type="text" id="lugar_bautismo" placeholder="Lugar de bautismo" required>
+        <input type="text" id="lugar_bautismo" placeholder="Lugar de bautismo" list="historial_lugar_bautismo" required>
 
         <label for="fecha_bautismo">Fecha de bautismo</label>
         <input type="date" id="fecha_bautismo" required>
 
         <label for="padre">Padre</label>
-        <input type="text" id="padre" placeholder="Padre" required>
+        <input type="text" id="padre" placeholder="Padre" list="historial_padre" required>
 
         <label for="madre">Madre</label>
-        <input type="text" id="madre" placeholder="Madre" required>
+        <input type="text" id="madre" placeholder="Madre" list="historial_madre" required>
 
         <label for="padrino">Padrino</label>
-        <input type="text" id="padrino" placeholder="Padrino" required>
+        <input type="text" id="padrino" placeholder="Padrino" list="historial_padrino" required>
 
         <label for="madrina">Madrina</label>
-        <input type="text" id="madrina" placeholder="Madrina" required>
+        <input type="text" id="madrina" placeholder="Madrina" list="historial_madrina" required>
 
         <label for="sacerdote">Presbitero</label>
-        <input type="text" id="sacerdote" placeholder="Presbitero" required>
+        <input type="text" id="sacerdote" placeholder="Presbitero" list="historial_sacerdote" required>
 
         <label for="libro_acta">Libro / Tomo</label>
-        <input type="text" id="libro_acta" placeholder="Libro o Tomo" required>
+        <input type="text" id="libro_acta" placeholder="Libro o Tomo" list="historial_libro_acta" required>
 
         <label for="pagina_acta">Página del Acta</label>
-        <input type="text" id="pagina_acta" placeholder="Ej. 45 o 45-vta" required>
+        <input type="text" id="pagina_acta" placeholder="Ej. 45 o 45-vta" list="historial_pagina_acta" required>
 
         <label for="numero_acta">Número de Acta</label>
-        <input type="text" id="numero_acta" placeholder="Ej. 102 o 102-B" required>
+        <input type="text" id="numero_acta" placeholder="Ej. 102 o 102-B" list="historial_numero_acta" required>
 
         <div class="form-actions">
             <button type="button" onclick="guardarActa()">
-                Guardar 
+                Guardar Acta
             </button>
             <button type="button" class="btn-regresar" onclick="window.location.href='index2.html'">
                 Regresar a Bautizados
@@ -75,6 +75,21 @@
         </div>
 
     </form>
+
+    <datalist id="historial_primer_nombre"></datalist>
+    <datalist id="historial_segundo_nombre"></datalist>
+    <datalist id="historial_primer_apellido"></datalist>
+    <datalist id="historial_segundo_apellido"></datalist>
+    <datalist id="historial_lugar_nacimiento"></datalist>
+    <datalist id="historial_lugar_bautismo"></datalist>
+    <datalist id="historial_padre"></datalist>
+    <datalist id="historial_madre"></datalist>
+    <datalist id="historial_padrino"></datalist>
+    <datalist id="historial_madrina"></datalist>
+    <datalist id="historial_sacerdote"></datalist>
+    <datalist id="historial_libro_acta"></datalist>
+    <datalist id="historial_pagina_acta"></datalist>
+    <datalist id="historial_numero_acta"></datalist>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="script.js"></script>

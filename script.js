@@ -65,7 +65,7 @@ async function buscarActas() {
         ({ data, error } = await supabaseClient
             .from(tableName)
             .select("*")
-            .order("primer_apellido", { ascending: true })
+            .order("primer_nombre", { ascending: true })
             .limit(200));
     } else {
         const filtro = [
@@ -106,33 +106,59 @@ function renderActas() {
     const resultados = document.getElementById("resultados");
     resultados.innerHTML = "";
 
+    if (!currentActas || currentActas.length === 0) {
+        resultados.innerHTML = '<p>No hay actas para mostrar.</p>';
+        return;
+    }
+
+    // Asegurar orden alfabético por primer_nombre en el cliente también
+    currentActas.sort((a, b) => (a.primer_nombre || '').localeCompare(b.primer_nombre || '', 'es', { sensitivity: 'base' }));
+
+    const table = document.createElement('table');
+    table.className = 'tabla-actas';
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+        <tr>
+            <th>Nombre</th>
+            <th>F. Nacimiento</th>
+            <th>F. Bautismo</th>
+            <th>Lugar Bautismo</th>
+            <th>Padre</th>
+            <th>Madre</th>
+            <th>Padrino</th>
+            <th>Madrina</th>
+            <th>Presbitero</th>
+            <th>Ubicación</th>
+            <th>Acciones</th>
+        </tr>
+    `;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
     currentActas.forEach((acta, index) => {
-        const nombreCompleto = `${acta.primer_nombre} ${acta.segundo_nombre || ''} ${acta.primer_apellido} ${acta.segundo_apellido || ''}`.trim();
-
-        resultados.innerHTML += `
-        <div class="acta">
-            <h2>${nombreCompleto}</h2>
-
-            <p><strong>Fecha de nacimiento:</strong> ${acta.fecha_nacimiento || acta.ano_nacimiento}</p>
-            <p><strong>Fecha de bautismo:</strong> ${acta.fecha_bautismo || acta.ano_bautismo}</p>
-            <p><strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo}</p>
-
-            <p><strong>Padre:</strong> ${acta.padre}</p>
-            <p><strong>Madre:</strong> ${acta.madre || 'No registrada'}</p>
-
-            <p><strong>Padrino:</strong> ${acta.padrino || 'No registrado'}</p>
-            <p><strong>Madrina:</strong> ${acta.madrina || 'No registrada'}</p>
-
-            <p><strong>Presbitero:</strong> ${acta.sacerdote}</p>
-
-            <p><strong>Ubicación del Documento:</strong> Libro ${acta.libro_acta}, Página ${acta.pagina_acta}, Acta Nº ${acta.numero_acta}</p>
-            <div class="acta-buttons">
-                <button type="button" class="descargar-btn" onclick="descargarActa(${index})">Descargar</button>
-                <button type="button" class="eliminar-btn" onclick="eliminarActa(${index})">Eliminar</button>
-            </div>
-        </div>
+        const nombreCompleto = `${acta.primer_nombre || ''} ${acta.segundo_nombre || ''} ${acta.primer_apellido || ''} ${acta.segundo_apellido || ''}`.replace(/\s+/g, ' ').trim();
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${nombreCompleto}</td>
+            <td>${acta.fecha_nacimiento || acta.ano_nacimiento || ''}</td>
+            <td>${acta.fecha_bautismo || acta.ano_bautismo || ''}</td>
+            <td>${acta.lugar_bautismo || ''}</td>
+            <td>${acta.padre || ''}</td>
+            <td>${acta.madre || ''}</td>
+            <td>${acta.padrino || ''}</td>
+            <td>${acta.madrina || ''}</td>
+            <td>${acta.sacerdote || ''}</td>
+            <td>Libro ${acta.libro_acta || ''}, Pág ${acta.pagina_acta || ''}, N° ${acta.numero_acta || ''}</td>
+            <td>
+                <button type="button" onclick="descargarActa(${index})">Descargar</button>
+                <button type="button" onclick="eliminarActa(${index})">Eliminar</button>
+            </td>
         `;
+        tbody.appendChild(tr);
     });
+
+    table.appendChild(tbody);
+    resultados.appendChild(table);
 }
 
 function eliminarActa(index) {
@@ -144,6 +170,13 @@ function Mostrar() {
     window.location.href = "index3.html";
 }
 
+const historialCampos = [
+    "primer_nombre", "segundo_nombre", "primer_apellido", "segundo_apellido",
+    "lugar_nacimiento", "lugar_bautismo",
+    "padre", "madre", "padrino", "madrina", "sacerdote",
+    "libro_acta", "pagina_acta", "numero_acta"
+];
+
 function getFieldValue(id) {
     return document.getElementById(id)?.value.trim() ?? "";
 }
@@ -153,6 +186,49 @@ function getYearFromDateField(id) {
     if (!value) return null;
     const date = new Date(value);
     return Number.isFinite(date.getFullYear()) ? date.getFullYear() : null;
+}
+
+function getHistorial() {
+    const raw = localStorage.getItem("historialActas");
+    try {
+        return raw ? JSON.parse(raw) : {};
+    } catch (error) {
+        console.warn("Historial local inválido, se reiniciará.", error);
+        return {};
+    }
+}
+
+function saveHistorial(historial) {
+    localStorage.setItem("historialActas", JSON.stringify(historial));
+}
+
+function agregarValorHistorial(campo, valor) {
+    if (!valor) return;
+    const historial = getHistorial();
+    const lista = new Set(historial[campo] || []);
+    lista.add(valor);
+    historial[campo] = Array.from(lista).sort((a, b) => a.localeCompare(b, "es", { sensitivity: "base" }));
+    saveHistorial(historial);
+}
+
+function cargarHistorialInputs() {
+    const historial = getHistorial();
+    historialCampos.forEach(campo => {
+        const datalist = document.getElementById(`historial_${campo}`);
+        if (!datalist) return;
+        datalist.innerHTML = "";
+        (historial[campo] || []).forEach(valor => {
+            const option = document.createElement("option");
+            option.value = valor;
+            datalist.appendChild(option);
+        });
+    });
+}
+
+function actualizarHistorialActa(datos) {
+    historialCampos.forEach(campo => {
+        agregarValorHistorial(campo, datos[campo]);
+    });
 }
 
 async function guardarActa() {
@@ -216,6 +292,9 @@ async function guardarActa() {
 
     alert("Acta guardada correctamente.");
 
+    actualizarHistorialActa(datos);
+    cargarHistorialInputs();
+
     const formulario = document.querySelector(".formulario");
     if (formulario && typeof formulario.reset === "function") {
         formulario.reset();
@@ -268,4 +347,9 @@ function prefillActaForm() {
     localStorage.removeItem("actaParaEditar");
 }
 
-document.addEventListener("DOMContentLoaded", prefillActaForm);
+document.addEventListener("DOMContentLoaded", () => {
+    cargarHistorialInputs();
+    prefillActaForm();
+    // Cargar y mostrar todas las actas al entrar en la página de listados
+    try { buscarActas(); } catch (e) { console.warn('No se pudo cargar actas al inicio', e); }
+});

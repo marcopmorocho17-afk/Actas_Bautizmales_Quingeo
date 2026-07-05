@@ -107,6 +107,67 @@ button:active {
     margin: 30px auto 0;
 }
 
+/* Tabla de resultados más limpia y espaciosa */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.tabla-actas {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 920px;
+    background: rgba(255,255,255,0.96);
+    color: #102a43;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(15,64,48,0.08);
+    overflow: hidden;
+}
+
+.tabla-actas thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 0.98rem;
+    background: linear-gradient(90deg, rgba(56,161,105,0.98), rgba(47,133,90,0.98));
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+}
+
+.tabla-actas tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(15,64,48,0.06);
+    vertical-align: middle;
+    font-size: 0.98rem;
+}
+
+.tabla-actas tbody tr:nth-child(even) {
+    background: rgba(0,0,0,0.02);
+}
+
+.tabla-actas td:nth-child(1) { font-weight: 700; max-width: 220px; }
+.tabla-actas td:nth-child(10) { white-space: normal; }
+
+.tabla-acciones button {
+    margin-right: 8px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+}
+
+.tabla-descargar { background: linear-gradient(135deg,#2f855a 0%,#276749 100%); color: #fff; }
+.tabla-eliminar { background: linear-gradient(135deg,#c53030 0%,#9b2c2c 100%); color: #fff; }
+
+@media (max-width: 980px) {
+    .tabla-actas { min-width: 760px; }
+}
+
+
 .acta {
     background: rgba(255, 255, 255, 0.97);
     color: #102a43;

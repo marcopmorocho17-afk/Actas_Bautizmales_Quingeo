@@ -190,7 +190,7 @@ form.formulario {
         letter-spacing: 0.08em;
     }
 
-..documento-content {
+.documento-content {
     display: grid;
     gap: 54px;
 }

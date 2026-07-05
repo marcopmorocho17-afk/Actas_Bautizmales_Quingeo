@@ -6,6 +6,123 @@ body {
     background: linear-gradient(180deg, #e7edf6 0%, #f8fafc 100%);
     color: #0f172a;
 }
+
+main.impresion-contenedor {
+    width: min(960px, 100%);
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.documento {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #dbeafe;
+    padding: 28px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
+}
+
+form.formulario {
+    width: min(880px, 100%);
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 32px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
+    display: grid;
+    gap: 18px;
+}
+
+form.formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+form.formulario input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+form.formulario input::placeholder {
+    color: #64748b;
+}
+
+form.formulario input:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 6px rgba(15, 118, 110, 0.12);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.form-actions button,
+.botones-impresion button {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 26px;
+    background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.form-actions button:hover,
+.botones-impresion button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.btn-regresar {
+    background: #334155;
+}
+
+.botones-impresion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 780px) {
+    form.formulario,
+    .documento {
+        padding: 22px;
+    }
+    .form-actions {
+        justify-content: stretch;
+    }
+    .form-actions button,
+    .botones-impresion button {
+        width: 100%;
+    }
+}
+
 @media print {
     @page { size: auto; margin: 14mm 12mm; }
 
@@ -32,25 +149,25 @@ body {
 
         .documento { border: none; background: transparent; padding: 0; margin-top: -10px; }
 
-        .documento-header { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 24px; }
+        .documento-header { display: flex; align-items: flex-start; gap: 17px; margin-bottom: 19px; }
         .documento-header .logo-placeholder { width: 70px; height: 70px; overflow: hidden; }
         .documento-header .logo-placeholder img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         .header-main-title { margin: 36px 0 0; text-align: center; font-size: 2rem; }
 
-        .documento-content { display: grid; gap: 60px; }
-        .documento-content p { margin: 0 0 16px; color: #0f172a; font-size: 1rem; line-height: 1.7; text-align: left; }
+        .documento-content { display: grid; gap: 55px; }
+        .documento-content p { margin: 0 0 11px; color: #0f172a; font-size: 1rem; line-height: 1.65; text-align: left; }
 
-        .documento-doc { margin-bottom: 24px; padding: 20px 22px; border: 1px solid #cbd5e1; border-radius: 16px; background: #f8fafc; font-weight: 700; }
-        .documento-doc--line { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: flex-start; margin: 0; padding: 0; border: none; background: transparent; }
+        .documento-doc { margin-bottom: 19px; padding: 20px 22px; border: 1px solid #cbd5e1; border-radius: 16px; background: #f8fafc; font-weight: 700; }
+        .documento-doc--line { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: flex-start; margin: 0; padding: 0; border: none; background: transparent; }
 
-        .fecha-quingeo { margin: 24px 0 0; font-size: 1rem; font-weight: 700; text-align: right; color: #0f172a; }
-        .telefono { margin: 120px 0 0; font-size: 1rem; font-weight: 700; text-align: center; color: #0f172a; }
+        .fecha-quingeo { margin: 19px 0 0; font-size: 1rem; font-weight: 700; text-align: right; color: #0f172a; }
+        .telefono { margin: 115px 0 0; font-size: 1rem; font-weight: 700; text-align: center; color: #0f172a; }
 
-        .nota-marginal-line { margin: 12px 0; width: 100%; min-height: 48px; border-bottom: 2px solid #cbd5e1; color: transparent; }
+        .nota-marginal-line { margin: 7px 0; width: 100%; min-height: 43px; border-bottom: 2px solid #cbd5e1; color: transparent; }
 
-        .documento-footer { margin-top: 120px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: flex-start; align-items: center; }
-        .firma-placeholder { width: min(420px,100%); display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:24px; }
+        .documento-footer { margin-top: 115px; display: flex; flex-wrap: wrap; gap: 19px; justify-content: flex-start; align-items: center; }
+        .firma-placeholder { width: min(420px,100%); display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:19px; }
     }
 }
 
@@ -193,13 +310,13 @@ body {
 
     .documento-content {
         display: grid;
-        gap: 30px;
+        gap: 25px;
     }
 
     .documento-content p {
-        margin: 0 0 8px;
+        margin: 0 0 3px;
         font-size: 0.98rem;
-        line-height: 1.35;
+        line-height: 1.3;
         text-align: left;
     }
 
@@ -285,3 +402,9 @@ body {
     object-fit: contain;
     display: block;
 }
+
+/* Firma: línea debajo del texto 'Parroco' */
+.firma-placeholder { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.firma-placeholder span { font-weight:700; white-space:nowrap; }
+.firma-line { width: 220px; min-width: 160px; height: 0; border-bottom: 2px solid #0f172a; }
+

@@ -14,6 +14,7 @@
 
         <div class="botones-impresion">
             <button id="descargarPDFBtn">Descargar PDF</button>
+            <button id="editarBtn">Editar</button>
             <button id="imprimirBtn">Imprimir</button>
             <button id="regresarBtn">Volver</button>
         </div>
@@ -67,10 +68,8 @@
                 </div>
                 <div class="documento-footer">
                     <div class="firma-placeholder">
-                        <span>Firma:</span>
                         <div class="firma-line"></div>
                     </div>
-                    <div class="nota-firma">(Espacio para firma)</div>
                 </div>
                 <p class="telefono">Telf: (07) 4149337</p>
             `;
@@ -112,6 +111,14 @@
 
         document.getElementById("imprimirBtn").addEventListener("click", () => {
             window.print();
+        });
+
+        document.getElementById("editarBtn").addEventListener("click", () => {
+            const acta = JSON.parse(localStorage.getItem("actaParaImprimir") || "null");
+            if (acta) {
+                localStorage.setItem("actaParaEditar", JSON.stringify(acta));
+            }
+            window.location.href = "index3.html";
         });
 
         document.getElementById("regresarBtn").addEventListener("click", () => {

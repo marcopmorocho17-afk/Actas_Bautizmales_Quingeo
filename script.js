@@ -221,3 +221,40 @@ function descargarActa(index) {
     localStorage.setItem("actaParaImprimir", JSON.stringify(acta));
     window.location.href = "descargar.html";
 }
+
+function prefillActaForm() {
+    const acta = JSON.parse(localStorage.getItem("actaParaEditar") || "null");
+    if (!acta) {
+        return;
+    }
+
+    const campos = {
+        primer_nombre: acta.primer_nombre,
+        segundo_nombre: acta.segundo_nombre,
+        primer_apellido: acta.primer_apellido,
+        segundo_apellido: acta.segundo_apellido,
+        fecha_nacimiento: acta.fecha_nacimiento || acta.ano_nacimiento,
+        lugar_nacimiento: acta.lugar_nacimiento,
+        lugar_bautismo: acta.lugar_bautismo,
+        fecha_bautismo: acta.fecha_bautismo,
+        padre: acta.padre,
+        madre: acta.madre,
+        padrino: acta.padrino,
+        madrina: acta.madrina,
+        sacerdote: acta.sacerdote,
+        libro_acta: acta.libro_acta,
+        pagina_acta: acta.pagina_acta,
+        numero_acta: acta.numero_acta
+    };
+
+    Object.entries(campos).forEach(([id, valor]) => {
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            elemento.value = valor || "";
+        }
+    });
+
+    localStorage.removeItem("actaParaEditar");
+}
+
+document.addEventListener("DOMContentLoaded", prefillActaForm);

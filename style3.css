@@ -188,8 +188,11 @@ form.formulario {
         font-size: 1rem;
         font-weight: 600;
         letter-spacing: 0.08em;
+    }
+
+.documento-content {
     display: grid;
-    gap: 14px;
+    gap: 18px;
 }
 
 .documento-content p {
@@ -197,6 +200,31 @@ form.formulario {
     color: #0f172a;
     font-size: 0.98rem;
     line-height: 1.75;
+}
+
+..documento-doc {
+    margin-bottom: 12px;
+    padding: 16px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    background: #f8fafc;
+    font-weight: 700;
+}
+
+.documento-doc--line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.documento-doc-item {
+    min-width: 130px;
 }
 
 .documento-content p strong {
@@ -295,8 +323,24 @@ form.formulario {
 }
 
 @media print {
+    @page {
+        size: auto;
+        margin: 14mm 12mm;
+    }
+
+    html,
     body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
         background: white;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .botones-impresion {
@@ -309,6 +353,7 @@ form.formulario {
         padding: 0;
         border: none;
         width: 100%;
+        max-width: 720px;
     }
 
     .documento {
@@ -332,23 +377,4 @@ form.formulario {
 .botones-impresion button:hover {
     transform: translateY(-1px);
     filter: brightness(1.05);
-}
-
-@media print {
-    body {
-        background: white;
-    }
-
-    .botones-impresion,
-    header,
-    footer {
-        display: none;
-    }
-
-    .impresion-contenedor {
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
 }

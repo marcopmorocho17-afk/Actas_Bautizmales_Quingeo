@@ -44,14 +44,18 @@
                     </div>
                 </div>
                 <p class="header-main-title">CERTIFICADO DE BAUTISMO</p>
-                <div class="documento-content">
+                <div class="documento-content documento-content--wide">
+                    <p class="documento-doc documento-doc--line">
+                        <span class="documento-doc-item"><strong>Tomo:</strong> ${acta.libro_acta || 'No disponible'}</span>
+                        <span class="documento-doc-item"><strong>Página:</strong> ${acta.pagina_acta || 'No disponible'}</span>
+                        <span class="documento-doc-item"><strong>N° acta:</strong> ${acta.numero_acta || 'No disponible'}</span>
+                    </p>
                     <p><strong>Nombre:</strong> ${nombreCompleto}</p>
                     <p><strong>Fecha de nacimiento:</strong> ${fechaNacimiento} <strong>Lugar de nacimiento:</strong> ${acta.lugar_nacimiento || 'No disponible'}</p>
                     <p><strong>Año de bautismo:</strong> ${acta.ano_bautismo || 'No disponible'} <strong>Lugar de bautismo:</strong> ${acta.lugar_bautismo || 'No disponible'}</p>
-                    <p><strong>Padre:</strong> ${acta.padre || 'No disponible'} <strong>Madre:</strong> ${acta.madre || 'No disponible'}</p>
-                    <p><strong>Padrino:</strong> ${acta.padrino || 'No disponible'} <strong>Madrina:</strong> ${acta.madrina || 'No disponible'}</p>
-                    <p><strong>Sacerdote:</strong> ${acta.sacerdote || 'No disponible'}</p>
-                    <p><strong>Tomo:</strong> ${acta.libro_acta || 'No disponible'} <strong>Página:</strong> ${acta.pagina_acta || 'No disponible'} <strong>N° acta:</strong> ${acta.numero_acta || 'No disponible'}</p>
+                    <p><strong>Padre:</strong> ${acta.padre || 'No disponible'}<br><strong>Madre:</strong> ${acta.madre || 'No disponible'}</p>
+                    <p><strong>Padrino:</strong> ${acta.padrino || 'No disponible'}<br><strong>Madrina:</strong> ${acta.madrina || 'No disponible'}</p>
+                    <p><strong>Presbistero:</strong> ${acta.sacerdote || 'No disponible'}</p>
                     <div class="nota-marginal">
                         <p class="nota-marginal-title"><strong>Nota marginal</strong></p>
                         <p class="nota-marginal-line"></p>

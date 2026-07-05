@@ -336,7 +336,7 @@ form.formulario {
 @media print {
     @page {
         size: auto;
-        margin: 14mm 12mm;
+        margin: 10mm 8mm;
     }
 
     html,
@@ -389,12 +389,44 @@ form.formulario {
     .documento {
         border: none;
         background: transparent;
-        padding: 0;
-        margin-top: -10px;
+        padding: 6px 8px;
+        margin-top: -6px;
     }
 
     .telefono {
-        margin: 100px 0 0;
+        margin: 40px 0 0;
+        font-size: 0.95rem;
+    }
+
+    .fecha-quingeo {
+        margin: 8px 0 0;
+        font-size: 0.95rem;
+    }
+
+    .documento-header {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .header-main-title {
+        margin: 18px 0 8px;
+        font-size: 1.6rem;
+    }
+
+    .documento-content {
+        display: grid;
+        gap: 8px;
+    }
+
+    .documento-content p {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+
+    .documento-doc {
+        margin-bottom: 8px;
+        padding: 10px 12px;
     }
 }
 

@@ -195,14 +195,14 @@ form.formulario {
     gap: 18px;
 }
 
-.documento-content p {
+..documento-content p {
     margin: 0;
     color: #0f172a;
     font-size: 0.98rem;
     line-height: 1.75;
 }
 
-..documento-doc {
+.documento-doc {
     margin-bottom: 12px;
     padding: 16px 20px;
     border: 1px solid #cbd5e1;
@@ -278,43 +278,35 @@ form.formulario {
     font-size: 0.95rem;
 }
 
-    .nota-marginal {
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: transparent;
-    }
-
-    .nota-marginal-title {
-        margin: 0 0 8px;
-        font-size: 1rem;
-        font-weight: 700;
-        color: #0f172a;
-        letter-spacing: 0.05em;
-    }
-
-    .nota-marginal-line {
-        margin: 8px 0;
-        width: 100%;
-        min-height: 36px;
-        border-bottom: 2px solid #cbd5e1;
-        color: transparent;
-    }
-
-    .telefono {
-        margin: 80px 0 0;
-        font-size: 1rem;
-        font-weight: 700;
-        text-align: center;
-        color: #0f172a;
-    }
-
+.nota-marginal {
+    margin: 0;
+    padding: 0;
     border: none;
-    border-radius: 14px;
-    padding: 14px 22px;
-    cursor: pointer;
+    background: transparent;
+}
+
+.nota-marginal-title {
+    margin: 0 0 8px;
+    font-size: 1rem;
     font-weight: 700;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    color: #0f172a;
+    letter-spacing: 0.05em;
+}
+
+.nota-marginal-line {
+    margin: 8px 0;
+    width: 100%;
+    min-height: 36px;
+    border-bottom: 2px solid #cbd5e1;
+    color: transparent;
+}
+
+.telefono {
+    margin: 120px 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #0f172a;
 }
 
 .botones-impresion button:hover {
@@ -393,7 +385,7 @@ form.formulario {
     }
 
     .telefono {
-        margin: 60px 0 0;
+        margin: 100px 0 0;
     }
 }
 

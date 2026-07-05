@@ -164,7 +164,7 @@ async function guardarActa() {
 
     const camposRequeridos = [
         "primer_nombre", "segundo_nombre", "primer_apellido", "segundo_apellido",
-        "fecha_nacimiento", "lugar_nacimiento", "fecha_bautismo", "lugar_bautismo", "iglesia",
+        "fecha_nacimiento", "lugar_nacimiento", "fecha_bautismo", "lugar_bautismo",
         "sacerdote", "padre", "madre", "padrino", "madrina",
         "libro_acta", "pagina_acta", "numero_acta"
     ];
@@ -193,7 +193,6 @@ async function guardarActa() {
         lugar_nacimiento: getFieldValue("lugar_nacimiento"),
         fecha_bautismo: getFieldValue("fecha_bautismo"),
         lugar_bautismo: getFieldValue("lugar_bautismo"),
-        iglesia: getFieldValue("iglesia"),
         sacerdote: getFieldValue("sacerdote"),
         padre: getFieldValue("padre"),
         madre: getFieldValue("madre"),
